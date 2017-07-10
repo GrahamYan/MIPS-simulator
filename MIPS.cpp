@@ -150,7 +150,7 @@ void init () {
 Memory mem[1000000];*/
 
 void instruction_fetch () {
-	string s;
+	/*string s;
 //	freopen ("array_test1-mahaojun.s" , "r" , stdin);                                      //testdata.txt
 	fstream out;
 	out.open("prime-5100309153-yanghuan.s" , ios::in);               //   array_test1-mahaojun    array_test2-mahaojun.s
@@ -162,13 +162,13 @@ void instruction_fetch () {
 		++cnt;
 		vec.push_back(s);
 //cout << s << "\n";
-	}*/
+	}
 	while (!out.eof()) {
 		getline(out , s);
 		while (s[0] == '\t' || s[0] == ' ') s.erase(s.begin());
 		++cnt;
 		vec.push_back(s);
-	}
+	}*/
 	return;
 }
 
@@ -2250,13 +2250,29 @@ if (graham > 10000000) return;*/
 
 
 
-int main() {
+int main(int argc, char **argv) {
 	int i , j , k , l;
 	init();
 	instruction_fetch();
-	
-	
-	
+	string s;
+//	freopen ("array_test1-mahaojun.s" , "r" , stdin);                                      //testdata.txt
+	ifstream infile(argv[1]);           //array_test2-mahaojun.s
+	int cnt = 0;
+	bool flag = false;
+/*	while (!cin.eof()) {
+		getline(cin , s);
+		while (s[0] == '\t' || s[0] == ' ') s.erase(s.begin());
+		++cnt;
+		vec.push_back(s);
+//cout << s << "\n";
+	}*/
+		getline(infile , s);
+	while (!infile.eof()) {
+		while (s[0] == '\t' || s[0] == ' ') s.erase(s.begin());
+		++cnt;
+		vec.push_back(s);
+		getline(infile , s);
+	}
 	
 //cout << "test fetch ok\n";
 	decode_preparation();
@@ -2279,8 +2295,8 @@ int main() {
 		cout << vec[i] << "\n";
 	}*/
 //cout << "test decode ok\n";
-freopen ("prime-5100309153-yanghuan.in" , "r" , stdin); //array_test1-mahaojun
-freopen ("ans.out" , "w" , stdout);
+//freopen ("prime-5100309153-yanghuan.in" , "r" , stdin); //array_test1-mahaojun
+//freopen ("ans.out" , "w" , stdout);
 //cout << "**********************************************" << label["main"] << "\n";
 /*	for (i = 0; i < ptr; ++i) {
 		if (mem[i] == '\n') {
